@@ -3,9 +3,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/relativeLayout">
+    android:id="@+id/relativeLayout"
+    android:background="#ff000000">
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#FFFFFF"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="false"
+            android:gravity="center_vertical"
+            android:id="@+id/linearLayout">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="R"
+                android:id="@+id/textView"
+                android:gravity="center|bottom" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="G"
+                android:id="@+id/textView2"
+                android:gravity="center|bottom" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="B"
+                android:id="@+id/textView3"
+                android:gravity="center|bottom" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutValues"
+            android:orientation="horizontal"
+            android:layout_width="300dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignLeft="@+id/linearLayout"
+            android:layout_alignStart="@+id/linearLayout">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textRed"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textGreen"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textBlue"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textHexadecimal"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textStyle="italic"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/linearLayoutValues" />
+
+    </RelativeLayout>
+
+     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
