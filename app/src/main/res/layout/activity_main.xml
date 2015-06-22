@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/relativeLayout"
+    android:id="@+id/viewMain"
     android:background="#ff000000">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:background="#FFFFFF"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" >

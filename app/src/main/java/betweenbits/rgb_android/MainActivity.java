@@ -1,38 +1,113 @@
 package betweenbits.rgb_android;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
+import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
+
+    private RelativeLayout viewMain;
+    private TextView textRed;
+    private TextView textGreen;
+    private TextView textBlue;
+
+    private SeekBar seekRed;
+    private SeekBar seekGreen;
+    private SeekBar seekBlue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initializeViews();
+
+        changeValueRed();
+        changeValueGreen();
+        changeValueBlue();
+
+        initializeValues();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    private void initializeViews() {
+        viewMain  = (RelativeLayout) findViewById(R.id.viewMain);
+        textRed   = (TextView) findViewById(R.id.textRed);
+        textGreen = (TextView) findViewById(R.id.textGreen);
+        textBlue  = (TextView) findViewById(R.id.textBlue);
+
+        seekRed   = (SeekBar) findViewById(R.id.seekRed);
+        seekGreen = (SeekBar) findViewById(R.id.seekGreen);
+        seekBlue  = (SeekBar) findViewById(R.id.seekBlue);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private void initializeValues() {
+        viewMain.setBackgroundColor(Color.rgb(seekRed.getProgress(), seekGreen.getProgress(), seekBlue.getProgress()));
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        textRed.setText("" + seekRed.getProgress());
+        textGreen.setText("" + seekGreen.getProgress());
+        textBlue.setText("" + seekBlue.getProgress());
+    }
 
-        return super.onOptionsItemSelected(item);
+    public void changeValueRed() {
+        seekRed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textRed.setText("" + progress);
+                viewMain.setBackgroundColor(Color.rgb(progress, seekGreen.getProgress(), seekBlue.getProgress()));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void changeValueGreen() {
+        seekGreen.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textGreen.setText("" + progress);
+                viewMain.setBackgroundColor(Color.rgb(seekRed.getProgress(), progress, seekBlue.getProgress()));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void changeValueBlue() {
+        seekBlue.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                textBlue.setText("" + progress);
+                viewMain.setBackgroundColor(Color.rgb(seekRed.getProgress(), seekGreen.getProgress(), progress));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 }
