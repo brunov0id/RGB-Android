@@ -16,7 +16,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="false"
@@ -58,19 +58,29 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textRed"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textColor="#000000"
+                android:text="0"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textGreen"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textColor="#000000"
+                android:text="0"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/textBlue"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:textColor="#000000"
+                android:text="0"
+                android:textStyle="bold"/>
+
         </LinearLayout>
 
         <TextView
@@ -98,7 +108,8 @@
             android:progressTint="#ffff4335"
             android:thumbTint="#ffff4335"
             android:background="#212121"
-            android:max="255"/>
+            android:max="255"
+            android:onClick="changeValueRed"/>
 
         <SeekBar
             android:layout_width="match_parent"
@@ -107,7 +118,8 @@
             android:progressTint="#4CAF50"
             android:thumbTint="#4CAF50"
             android:background="#212121"
-            android:max="255"/>
+            android:max="255"
+            android:onClick="changeValueGreen"/>
 
         <SeekBar
             android:layout_width="match_parent"
@@ -116,7 +128,8 @@
             android:progressTint="#1976D2"
             android:thumbTint="#1976D2"
             android:background="#212121"
-            android:max="255"/>
+            android:max="255"
+            android:onClick="changeValueBlue"/>
 
     </LinearLayout>
 

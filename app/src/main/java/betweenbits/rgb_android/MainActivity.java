@@ -1,6 +1,7 @@
 package betweenbits.rgb_android;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
@@ -49,6 +50,10 @@ public class MainActivity extends ActionBarActivity {
         textRed.setText("" + seekRed.getProgress());
         textGreen.setText("" + seekGreen.getProgress());
         textBlue.setText("" + seekBlue.getProgress());
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimary));
+        }
     }
 
     public void changeValueRed() {
